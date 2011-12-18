@@ -1,0 +1,1183 @@
+let SessionLoad = 1
+if &cp | set nocp | endif
+let s:cpo_save=&cpo
+set cpo&vim
+inoremap <silent> <S-Tab> =BackwardsSnippet()
+imap <k1>\A <Plug>ZenCodingAnchorizeSummary
+inoremap <Plug>ZenCodingAnchorizeSummary :call zencoding#anchorizeURL(1)a
+imap <k1>\a <Plug>ZenCodingAnchorizeURL
+inoremap <Plug>ZenCodingAnchorizeURL :call zencoding#anchorizeURL(0)a
+imap <k1>\k <Plug>ZenCodingRemoveTag
+inoremap <Plug>ZenCodingRemoveTag :call zencoding#removeTag()a
+imap <k1>\j <Plug>ZenCodingSplitJoinTagInsert
+inoremap <Plug>ZenCodingSplitJoinTagInsert :call zencoding#splitJoinTag()a
+imap <k1>F <Plug>ZenCodingToggleComment
+inoremap <Plug>ZenCodingToggleComment :call zencoding#toggleComment()a
+imap <k1>\i <Plug>ZenCodingImageSize
+inoremap <Plug>ZenCodingImageSize :call zencoding#imageSize()a
+imap <k1>b <Plug>ZenCodingPrev
+inoremap <Plug>ZenCodingPrev :call zencoding#moveNextPrev(1)
+imap <k1>n <Plug>ZenCodingNext
+inoremap <Plug>ZenCodingNext :call zencoding#moveNextPrev(0)
+imap <k1>\D <Plug>ZenCodingBalanceTagOutwardInsert
+inoremap <Plug>ZenCodingBalanceTagOutwardInsert :call zencoding#balanceTag(-1)a
+imap <k1>\d <Plug>ZenCodingBalanceTagInwardInsert
+inoremap <Plug>ZenCodingBalanceTagInwardInsert :call zencoding#balanceTag(1)a
+imap <k1>\; <Plug>ZenCodingExpandWord
+inoremap <Plug>ZenCodingExpandWord u:call zencoding#expandAbbr(1)a
+imap <k1><k9> <Plug>ZenCodingExpandAbbr
+inoremap <Plug>ZenCodingExpandAbbr u:call zencoding#expandAbbr(0)a
+inoremap <silent> <Plug>NERDCommenterInInsert  <BS>:call NERDComment(0, "insert")
+inoremap <k1><k9> :InlineEdita
+inoremap <C-k1> <Right>
+inoremap <k1>  <Insert>
+inoremap <k1>/ <Right>/
+inoremap <k1><k1> <Right>:
+inoremap <k1> <Right>
+inoremap <C-Space> 
+inoremap <F21> :q!
+inoremap <C-F8> :SessionSave
+inoremap <F8> :SessionList
+inoremap <F5> :w
+inoremap <F4> :tabnew:e .
+inoremap <F3> :tabnext 
+inoremap <F2> :tabprev 
+inoremap <F1> w
+imap <k1>f f 
+inoremap <C-CR> o
+inoremap <k1>ё ё
+inoremap <k1>` `
+inoremap <C-k9> 
+inoremap <k9> 
+inoremap <C-Tab> <<i
+map! <S-Insert> <MiddleMouse>
+nnoremap  20h
+noremap  "+y
+nnoremap  20l
+noremap  E
+vmap  <Plug>NERDCommenterToEOL
+nmap  <Plug>NERDCommenterToEOL
+snoremap <silent> 	 i<Right>=TriggerSnippet()
+xnoremap 	 >gv
+nnoremap 	 >>
+nnoremap <NL> 0
+nnoremap  25j
+nnoremap  <End><Right>
+nnoremap  O
+noremap  gE
+nnoremap  8j
+vnoremap  x"+]P<Right>i
+nnoremap  "+]P<Right>
+nnoremap  8k
+nnoremap  "+x
+snoremap  b<BS>
+xnoremap  "+xi
+onoremap  "+x
+vnoremap  <Del>i
+nnoremap  x
+noremap <silent>  :silent call g:KLS.SwitchToDefaultInputSource()
+nnoremap   i
+vnoremap   <Right>i
+onoremap   i
+snoremap % b<BS>%
+snoremap ' b<BS>'
+nnoremap ' `
+noremap ,f :NERDTreeToggle
+noremap ,t :tabnew
+noremap ,<F1> 
+noremap : :silent call g:KLS.SwitchToDefaultInputSource():
+vnoremap A h
+nnoremap A vh
+inoremap ½ i
+inoremap ­ ui
+imap  ccv<Up>f<Down>j
+inoremap ® >>i
+inoremap ¬ <<i
+inoremap ë 16
+inoremap é 16
+inoremap ó 8
+inoremap ÷ 8
+inoremap ã "+yypi
+inoremap ú ddi
+vnoremap D l
+nnoremap D vl
+vnoremap E w
+nnoremap E vw
+noremap G ggVG
+vnoremap J ^
+nnoremap J v^
+vnoremap L <End>
+nnoremap L v<End>
+nnoremap M :MarksBrowser
+nnoremap P "+gp<Right>
+inoremap ё <Right>:set nohls
+vnoremap Q b
+nnoremap Q vb
+vnoremap R y :execute ":let @/=@\"" :execute "set hlsearch"
+vnoremap S j
+nnoremap S Vj
+snoremap U b<BS>U
+vnoremap V x"+gPi<Right>
+nnoremap V "+gP<Right>
+vnoremap W k
+nnoremap W Vk
+snoremap \ b<BS>\
+nmap \ca <Plug>NERDCommenterAltDelims
+vmap \cu <Plug>NERDCommenterUncomment
+nmap \cu <Plug>NERDCommenterUncomment
+vmap \cn <Plug>NERDCommenterNest
+nmap \cn <Plug>NERDCommenterNest
+vmap \cb <Plug>NERDCommenterAlignBoth
+nmap \cb <Plug>NERDCommenterAlignBoth
+vmap \cl <Plug>NERDCommenterAlignLeft
+nmap \cl <Plug>NERDCommenterAlignLeft
+vmap \cy <Plug>NERDCommenterYank
+nmap \cy <Plug>NERDCommenterYank
+vmap \ci <Plug>NERDCommenterInvert
+nmap \ci <Plug>NERDCommenterInvert
+vmap \cs <Plug>NERDCommenterSexy
+nmap \cs <Plug>NERDCommenterSexy
+vmap \cm <Plug>NERDCommenterMinimal
+nmap \cm <Plug>NERDCommenterMinimal
+vmap \cc <Plug>NERDCommenterComment
+nmap \cc <Plug>NERDCommenterComment
+snoremap ^ b<BS>^
+nnoremap ` :set nohls
+xnoremap ` :set nohls
+snoremap ` b<BS>`
+onoremap ` :set nohls
+vnoremap a h
+nnoremap a h
+nnoremap b N
+nmap c<S-k9><S-k9> <Plug>YSsurround
+nmap c<S-k9><k9> <Plug>YSsurround
+nmap c<k9><k9> <Plug>Yssurround
+nmap c<S-k9> <Plug>YSurround
+nmap c<k9> <Plug>Ysurround
+nnoremap cs ^"+y$
+nnoremap cc "+yy
+vnoremap c "+y
+nnoremap cl "+y$
+nnoremap cj "+y^
+nnoremap ce "+yw
+nnoremap cq "+yb
+nnoremap cx "+yd
+nnoremap cw "+yk
+nnoremap cd "+yl
+nnoremap ca "+yh
+nmap cf ccv<Up>f<Down>j
+vnoremap d l
+nnoremap d l
+vnoremap e w
+nnoremap e W
+vmap f <Plug>NERDCommenterToggle
+nmap f <Plug>NERDCommenterToggle
+nmap gx <Plug>NetrwBrowseX
+xmap gS <Plug>VgSurround
+nnoremap gb #
+nnoremap gn *
+nnoremap i {
+vnoremap j ^
+nnoremap j ^
+nnoremap k }
+vnoremap l <End>
+nnoremap l <End>
+nnoremap p "+]p<Right>
+vnoremap q b
+nnoremap q B
+vnoremap r :s///g<Left><Left>
+vnoremap s j<Left>
+nnoremap s j
+vnoremap v x"+]Pi<Right>
+nnoremap v "+]P<Right>
+vnoremap w k<Left>
+nnoremap w k
+nmap x<k9> <Plug>Csurround
+noremap x "+x
+nnoremap xl "+d$
+nnoremap xj "+d^
+nnoremap xe "+dw
+nnoremap xq "+db
+nnoremap xx "+dd
+noremap xs ^"+d$
+nnoremap xw "+dk
+nnoremap xd "+dl
+nnoremap xa "+dh
+nnoremap zz dd
+nmap z<k9> <Plug>Dsurround
+noremap z  J
+noremap zl d$
+noremap zj d^
+noremap ze dw
+noremap zq db
+vnoremap zz dd
+onoremap zz dd
+noremap zs ^d$
+noremap zw dk
+noremap zd dl
+noremap za dh
+noremap zx x
+noremap z <Del>
+nmap { ?^[ \t]
+nmap } /^[ \t]*$
+nnoremap <BS> dh
+xnoremap <BS> dh
+nnoremap <k3> :FufFile
+snoremap <Left> bi
+snoremap <Right> a
+snoremap <BS> b<BS>
+snoremap <silent> <S-Tab> i<Right>=BackwardsSnippet()
+nnoremap <silent> <Plug>NetrwBrowseX :call netrw#NetrwBrowseX(expand("<cWORD>"),0)
+nmap <k1>\A <Plug>ZenCodingAnchorizeSummary
+nnoremap <Plug>ZenCodingAnchorizeSummary :call zencoding#anchorizeURL(1)
+nmap <k1>\a <Plug>ZenCodingAnchorizeURL
+nnoremap <Plug>ZenCodingAnchorizeURL :call zencoding#anchorizeURL(0)
+nmap <k1>\k <Plug>ZenCodingRemoveTag
+nnoremap <Plug>ZenCodingRemoveTag :call zencoding#removeTag()
+nmap <k1>\j <Plug>ZenCodingSplitJoinTagNormal
+nnoremap <Plug>ZenCodingSplitJoinTagNormal :call zencoding#splitJoinTag()
+nmap <k1>F <Plug>ZenCodingToggleComment
+nnoremap <Plug>ZenCodingToggleComment :call zencoding#toggleComment()
+nmap <k1>\i <Plug>ZenCodingImageSize
+nnoremap <Plug>ZenCodingImageSize :call zencoding#imageSize()
+nmap <k1>b <Plug>ZenCodingPrev
+nnoremap <Plug>ZenCodingPrev :call zencoding#moveNextPrev(1)
+nmap <k1>n <Plug>ZenCodingNext
+nnoremap <Plug>ZenCodingNext :call zencoding#moveNextPrev(0)
+vmap <k1>\D <Plug>ZenCodingBalanceTagOutwardVisual
+vnoremap <Plug>ZenCodingBalanceTagOutwardVisual :call zencoding#balanceTag(-2)
+nmap <k1>\D <Plug>ZenCodingBalanceTagOutwardNormal
+nnoremap <Plug>ZenCodingBalanceTagOutwardNormal :call zencoding#balanceTag(-1)
+vmap <k1>\d <Plug>ZenCodingBalanceTagInwardVisual
+vnoremap <Plug>ZenCodingBalanceTagInwardVisual :call zencoding#balanceTag(2)
+nmap <k1>\d <Plug>ZenCodingBalanceTagInwardNormal
+nnoremap <Plug>ZenCodingBalanceTagInwardNormal :call zencoding#balanceTag(1)
+nmap <k1>\; <Plug>ZenCodingExpandWord
+nnoremap <Plug>ZenCodingExpandWord :call zencoding#expandAbbr(1)
+nmap <k1><k9> <Plug>ZenCodingExpandNormal
+nnoremap <Plug>ZenCodingExpandNormal :call zencoding#expandAbbr(3)
+vmap <k1><k9> <Plug>ZenCodingExpandVisual
+vnoremap <Plug>ZenCodingExpandVisual :call zencoding#expandAbbr(2)
+xmap <S-k9> <Plug>VSurround
+xmap <k9> <Plug>Vsurround
+nnoremap <silent> <k9><F11> :call conque_term#exec_file()
+nmap <silent> <Plug>NERDCommenterAppend :call NERDComment(0, "append")
+nnoremap <silent> <Plug>NERDCommenterToEOL :call NERDComment(0, "toEOL")
+vnoremap <silent> <Plug>NERDCommenterUncomment :call NERDComment(1, "uncomment")
+nnoremap <silent> <Plug>NERDCommenterUncomment :call NERDComment(0, "uncomment")
+vnoremap <silent> <Plug>NERDCommenterNest :call NERDComment(1, "nested")
+nnoremap <silent> <Plug>NERDCommenterNest :call NERDComment(0, "nested")
+vnoremap <silent> <Plug>NERDCommenterAlignBoth :call NERDComment(1, "alignBoth")
+nnoremap <silent> <Plug>NERDCommenterAlignBoth :call NERDComment(0, "alignBoth")
+vnoremap <silent> <Plug>NERDCommenterAlignLeft :call NERDComment(1, "alignLeft")
+nnoremap <silent> <Plug>NERDCommenterAlignLeft :call NERDComment(0, "alignLeft")
+vmap <silent> <Plug>NERDCommenterYank :call NERDComment(1, "yank")
+nmap <silent> <Plug>NERDCommenterYank :call NERDComment(0, "yank")
+vnoremap <silent> <Plug>NERDCommenterInvert :call NERDComment(1, "invert")
+nnoremap <silent> <Plug>NERDCommenterInvert :call NERDComment(0, "invert")
+vnoremap <silent> <Plug>NERDCommenterSexy :call NERDComment(1, "sexy")
+nnoremap <silent> <Plug>NERDCommenterSexy :call NERDComment(0, "sexy")
+vnoremap <silent> <Plug>NERDCommenterMinimal :call NERDComment(1, "minimal")
+nnoremap <silent> <Plug>NERDCommenterMinimal :call NERDComment(0, "minimal")
+vnoremap <silent> <Plug>NERDCommenterToggle :call NERDComment(1, "toggle")
+nnoremap <silent> <Plug>NERDCommenterToggle :call NERDComment(0, "toggle")
+vnoremap <silent> <Plug>NERDCommenterComment :call NERDComment(1, "norm")
+nnoremap <silent> <Plug>NERDCommenterComment :call NERDComment(0, "norm")
+nnoremap <k3><k3> :FufMruFile
+nnoremap <k3>f :FufFileWithFullCwd
+noremap <k9> :InlineEdit
+nnoremap <k9><C-Space> cw
+nnoremap <k9>  ciw
+noremap <k1>  R
+noremap <C-Space> A
+nnoremap <M-F12> :syntax clear:syntax on:color jed
+noremap <F21> :q!
+noremap <C-F12> :edit ~/
+noremap <F12> :edit ~/.vimrc 
+noremap <M-F11> :NERDTreeToggle
+noremap <C-F11> :let my_terminal = :ConqueTermSplit bash
+noremap <F11> :TagbarToggle
+noremap <C-F8> :SessionSave
+noremap <F8> :SessionList
+nnoremap <silent> <C-F5> :let _s=@/|:%s/\s\+$//e|:let @/=_s|:let _s=@/|:%s/^\n\+/\r/|:let @/=_s|:nohl|:w``
+noremap <F5> :w
+noremap <S-F4> :ConqueTerm bash
+noremap <C-F4> :e .
+noremap <F4> :tabnew:e .
+nnoremap <silent> <C-F3> :execute 'silent! tabmove ' . tabpagenr()
+noremap <F3> :tabnext 
+nnoremap <silent> <C-F2> :execute 'silent! tabmove ' . (tabpagenr()-2)
+noremap <F2> :tabprev 
+noremap <F1> w
+onoremap <BS> dh
+nnoremap <C-CR> o
+nnoremap <S-CR> O
+vnoremap <C-Tab> <gv
+nnoremap <C-Tab> <<
+nnoremap <S-k1>s VG
+nnoremap <S-k1>w Vgg
+nnoremap <F10> 	
+nnoremap <F9> 
+nnoremap <k1>w gg
+nnoremap <k1>s G
+noremap <S-F12> :set lines=55 columns=142:!transset 0.95
+noremap <S-Insert> <MiddleMouse>
+inoremap  5h
+inoremap  "+yyi
+inoremap  5l
+inoremap <silent> 	 =TriggerSnippet()
+inoremap <silent> 	 =ShowAvailableSnips()
+inoremap  5j
+cnoremap  +
+inoremap  <Right>"+]P<Right>i
+inoremap  5k
+inoremap  "+xi
+inoremap  <Del>
+inoremap  <Right>
+inoremap " ""<Left>
+inoremap ' ''<Left>
+inoremap ( ()<Left>
+noremap ½ 
+noremap ­ u
+nnoremap ® >>
+nnoremap ¬ <<
+nnoremap  25j
+nnoremap  25k
+vmap æ <Plug>NERDCommenterAppend
+nmap æ <Plug>NERDCommenterAppend
+nnoremap ë 16
+nnoremap é 16
+nnoremap ó 8
+nnoremap ÷ 8
+nnoremap ã "+yyp
+noremap ø "+dd
+noremap ú dd
+vnoremap Ó j
+nnoremap Ó j
+vnoremap × k
+nnoremap × k
+vnoremap Ì <End>
+nnoremap Ì <End>
+vnoremap Å w
+nnoremap Å w
+vnoremap Ä l
+nnoremap Ä l
+vnoremap Ñ b
+nnoremap Ñ b
+vnoremap Á h
+nnoremap Á h
+noremap å $
+noremap ñ ^
+inoremap [ []<Left>
+inoremap ` <Right>:set nohls
+inoremap { {}<Left>
+let &cpo=s:cpo_save
+unlet s:cpo_save
+set autoindent
+set background=dark
+set backspace=indent,eol,start
+set cindent
+set expandtab
+set fileencodings=ucs-bom,utf-8,default,latin1
+set guicursor=a:blinkon0
+set guifont=Monospace\ 11
+set guioptions=agiLte
+set guitablabel=%!MyGuiTabLabel()
+set helpheight=100
+set helplang=en
+set ignorecase
+set incsearch
+set isident=@,48-57,_,192-255,$
+set keymodel=startsel
+set listchars=tab:|\ 
+set mouse=a
+set printoptions=paper:letter
+set ruler
+set runtimepath=~/.vim,/var/lib/vim/addons,/usr/share/vim/vimfiles,/usr/share/vim/vim73,/usr/share/vim/vimfiles/after,/var/lib/vim/addons/after,~/.vim/after
+set scrolljump=5
+set scrolloff=8
+set shiftwidth=4
+set showtabline=2
+set smartindent
+set smarttab
+set suffixes=.bak,~,.swp,.o,.info,.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.ilg,.inx,.out,.toc
+set noswapfile
+set tabline=%!MyTabLine()
+set tabstop=4
+set termencoding=utf-8
+set virtualedit=onemore
+set window=54
+set nowritebackup
+let s:so_save = &so | let s:siso_save = &siso | set so=0 siso=0
+let v:this_session=expand("<sfile>:p")
+silent only
+cd ~/
+if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
+  let s:wipebuf = bufnr('%')
+endif
+set shortmess=aoO
+badd +459 .vimrc
+badd +3 work/oDeskPrototype/odesk_proto/public/js/app.coffee
+badd +1 .vim/plugin/fuf.vim
+badd +1 Dropbox/notes/notes
+silent! argdel *
+edit .vimrc
+set splitbelow splitright
+set nosplitbelow
+set nosplitright
+wincmd t
+set winheight=1 winwidth=1
+argglobal
+vnoremap <buffer> <silent> [" :exe "normal! gv"|call search('\%(^\s*".*\n\)\%(^\s*"\)\@!', "bW")
+nnoremap <buffer> <silent> [" :call search('\%(^\s*".*\n\)\%(^\s*"\)\@!', "bW")
+vnoremap <buffer> <silent> [] m':exe "normal! gv"|call search('^\s*endf*\%[unction]\>', "bW")
+nnoremap <buffer> <silent> [] m':call search('^\s*endf*\%[unction]\>', "bW")
+vnoremap <buffer> <silent> [[ m':exe "normal! gv"|call search('^\s*fu\%[nction]\>', "bW")
+nnoremap <buffer> <silent> [[ m':call search('^\s*fu\%[nction]\>', "bW")
+vnoremap <buffer> <silent> ]" :exe "normal! gv"|call search('^\(\s*".*\n\)\@<!\(\s*"\)', "W")
+nnoremap <buffer> <silent> ]" :call search('^\(\s*".*\n\)\@<!\(\s*"\)', "W")
+vnoremap <buffer> <silent> ][ m':exe "normal! gv"|call search('^\s*endf*\%[unction]\>', "W")
+nnoremap <buffer> <silent> ][ m':call search('^\s*endf*\%[unction]\>', "W")
+vnoremap <buffer> <silent> ]] m':exe "normal! gv"|call search('^\s*fu\%[nction]\>', "W")
+nnoremap <buffer> <silent> ]] m':call search('^\s*fu\%[nction]\>', "W")
+setlocal keymap=
+setlocal noarabic
+setlocal autoindent
+setlocal balloonexpr=
+setlocal nobinary
+setlocal bufhidden=
+setlocal buflisted
+setlocal buftype=
+setlocal cindent
+setlocal cinkeys=0{,0},0),:,0#,!^F,o,O,e
+setlocal cinoptions=
+setlocal cinwords=if,else,while,do,for,switch
+setlocal colorcolumn=
+setlocal comments=sO:\"\ -,mO:\"\ \ ,eO:\"\",:\"
+setlocal commentstring=\"%s
+setlocal complete=.,w,b,u,t,i
+setlocal concealcursor=
+setlocal conceallevel=0
+setlocal completefunc=
+setlocal nocopyindent
+setlocal cryptmethod=
+setlocal nocursorbind
+setlocal nocursorcolumn
+set cursorline
+setlocal cursorline
+setlocal define=
+setlocal dictionary=
+setlocal nodiff
+setlocal equalprg=
+setlocal errorformat=
+setlocal expandtab
+if &filetype != 'vim'
+setlocal filetype=vim
+endif
+setlocal foldcolumn=0
+set nofoldenable
+setlocal nofoldenable
+setlocal foldexpr=0
+setlocal foldignore=#
+setlocal foldlevel=0
+setlocal foldmarker={{{,}}}
+setlocal foldmethod=manual
+setlocal foldminlines=1
+setlocal foldnestmax=20
+setlocal foldtext=foldtext()
+setlocal formatexpr=
+setlocal formatoptions=croql
+setlocal formatlistpat=^\\s*\\d\\+[\\]:.)}\\t\ ]\\s*
+setlocal grepprg=
+setlocal iminsert=0
+setlocal imsearch=2
+setlocal include=
+setlocal includeexpr=
+setlocal indentexpr=GetVimIndent()
+setlocal indentkeys=0{,0},:,0#,!^F,o,O,e,=end,=else,=cat,=fina,=END,0\\
+setlocal noinfercase
+setlocal iskeyword=@,48-57,_,192-255,#
+setlocal keywordprg=
+setlocal nolinebreak
+setlocal nolisp
+set list
+setlocal list
+setlocal makeprg=
+setlocal matchpairs=(:),{:},[:]
+setlocal modeline
+setlocal modifiable
+setlocal nrformats=octal,hex
+set number
+setlocal number
+setlocal numberwidth=4
+setlocal omnifunc=
+setlocal path=
+setlocal nopreserveindent
+setlocal nopreviewwindow
+setlocal quoteescape=\\
+setlocal noreadonly
+setlocal norelativenumber
+setlocal norightleft
+setlocal rightleftcmd=search
+setlocal noscrollbind
+setlocal shiftwidth=4
+setlocal noshortname
+setlocal smartindent
+setlocal softtabstop=0
+setlocal nospell
+setlocal spellcapcheck=[.?!]\\_[\\])'\"\	\ ]\\+
+setlocal spellfile=
+setlocal spelllang=en
+setlocal statusline=
+setlocal suffixesadd=
+setlocal noswapfile
+setlocal synmaxcol=3000
+if &syntax != 'vim'
+setlocal syntax=vim
+endif
+setlocal tabstop=4
+setlocal tags=
+setlocal textwidth=78
+setlocal thesaurus=
+setlocal noundofile
+setlocal nowinfixheight
+setlocal nowinfixwidth
+set nowrap
+setlocal nowrap
+setlocal wrapmargin=0
+silent! normal! zE
+let s:l = 456 - ((47 * winheight(0) + 27) / 54)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+456
+normal! 0
+lcd ~/
+tabedit ~/work/oDeskPrototype/odesk_proto/public/js/app.coffee
+set splitbelow splitright
+set nosplitbelow
+set nosplitright
+wincmd t
+set winheight=1 winwidth=1
+argglobal
+setlocal keymap=
+setlocal noarabic
+setlocal autoindent
+setlocal balloonexpr=
+setlocal nobinary
+setlocal bufhidden=
+setlocal buflisted
+setlocal buftype=
+setlocal cindent
+setlocal cinkeys=0{,0},0),:,0#,!^F,o,O,e
+setlocal cinoptions=
+setlocal cinwords=if,else,while,do,for,switch
+setlocal colorcolumn=
+setlocal comments=:#
+setlocal commentstring=#\ %s
+setlocal complete=.,w,b,u,t,i
+setlocal concealcursor=
+setlocal conceallevel=0
+setlocal completefunc=
+setlocal nocopyindent
+setlocal cryptmethod=
+setlocal nocursorbind
+setlocal nocursorcolumn
+set cursorline
+setlocal cursorline
+setlocal define=
+setlocal dictionary=
+setlocal nodiff
+setlocal equalprg=
+setlocal errorformat=Error:\ In\ %f\\,\ %m\ on\ line\ %l,Error:\ In\ %f\\,\ Parse\ error\ on\ line\ %l:\ %m,SyntaxError:\ In\ %f\\,\ %m,%-G%.%#
+setlocal expandtab
+if &filetype != 'coffee'
+setlocal filetype=coffee
+endif
+setlocal foldcolumn=0
+set nofoldenable
+setlocal nofoldenable
+setlocal foldexpr=0
+setlocal foldignore=#
+setlocal foldlevel=0
+setlocal foldmarker={{{,}}}
+setlocal foldmethod=manual
+setlocal foldminlines=1
+setlocal foldnestmax=20
+setlocal foldtext=foldtext()
+setlocal formatexpr=
+setlocal formatoptions=croql
+setlocal formatlistpat=^\\s*\\d\\+[\\]:.)}\\t\ ]\\s*
+setlocal grepprg=
+setlocal iminsert=2
+setlocal imsearch=2
+setlocal include=
+setlocal includeexpr=
+setlocal indentexpr=GetCoffeeIndent(v:lnum)
+setlocal indentkeys=0{,0},:,0#,!^F,o,O,e,0],0),0.,=else,=when,=catch,=finally
+setlocal noinfercase
+setlocal iskeyword=@,48-57,_,192-255
+setlocal keywordprg=
+setlocal nolinebreak
+setlocal nolisp
+set list
+setlocal list
+setlocal makeprg=coffee\ -c\ \ $*\ work/oDeskPrototype/odesk_proto/public/js/app.coffee
+setlocal matchpairs=(:),{:},[:]
+setlocal modeline
+setlocal modifiable
+setlocal nrformats=octal,hex
+set number
+setlocal number
+setlocal numberwidth=4
+setlocal omnifunc=javascriptcomplete#CompleteJS
+setlocal path=
+setlocal nopreserveindent
+setlocal nopreviewwindow
+setlocal quoteescape=\\
+setlocal noreadonly
+setlocal norelativenumber
+setlocal norightleft
+setlocal rightleftcmd=search
+setlocal noscrollbind
+setlocal shiftwidth=4
+setlocal noshortname
+setlocal smartindent
+setlocal softtabstop=0
+setlocal nospell
+setlocal spellcapcheck=[.?!]\\_[\\])'\"\	\ ]\\+
+setlocal spellfile=
+setlocal spelllang=en
+setlocal statusline=
+setlocal suffixesadd=
+setlocal noswapfile
+setlocal synmaxcol=3000
+if &syntax != 'coffee'
+setlocal syntax=coffee
+endif
+setlocal tabstop=4
+setlocal tags=
+setlocal textwidth=0
+setlocal thesaurus=
+setlocal noundofile
+setlocal nowinfixheight
+setlocal nowinfixwidth
+set nowrap
+setlocal nowrap
+setlocal wrapmargin=0
+silent! normal! zE
+let s:l = 3 - ((2 * winheight(0) + 27) / 54)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+3
+normal! 015l
+lcd ~/work/oDeskPrototype/odesk_proto/public/js
+tabedit ~/.vim/plugin/fuf.vim
+set splitbelow splitright
+set nosplitbelow
+set nosplitright
+wincmd t
+set winheight=1 winwidth=1
+argglobal
+vnoremap <buffer> <silent> [" :exe "normal! gv"|call search('\%(^\s*".*\n\)\%(^\s*"\)\@!', "bW")
+nnoremap <buffer> <silent> [" :call search('\%(^\s*".*\n\)\%(^\s*"\)\@!', "bW")
+vnoremap <buffer> <silent> [] m':exe "normal! gv"|call search('^\s*endf*\%[unction]\>', "bW")
+nnoremap <buffer> <silent> [] m':call search('^\s*endf*\%[unction]\>', "bW")
+vnoremap <buffer> <silent> [[ m':exe "normal! gv"|call search('^\s*fu\%[nction]\>', "bW")
+nnoremap <buffer> <silent> [[ m':call search('^\s*fu\%[nction]\>', "bW")
+vnoremap <buffer> <silent> ]" :exe "normal! gv"|call search('^\(\s*".*\n\)\@<!\(\s*"\)', "W")
+nnoremap <buffer> <silent> ]" :call search('^\(\s*".*\n\)\@<!\(\s*"\)', "W")
+vnoremap <buffer> <silent> ][ m':exe "normal! gv"|call search('^\s*endf*\%[unction]\>', "W")
+nnoremap <buffer> <silent> ][ m':call search('^\s*endf*\%[unction]\>', "W")
+vnoremap <buffer> <silent> ]] m':exe "normal! gv"|call search('^\s*fu\%[nction]\>', "W")
+nnoremap <buffer> <silent> ]] m':call search('^\s*fu\%[nction]\>', "W")
+setlocal keymap=
+setlocal noarabic
+setlocal autoindent
+setlocal balloonexpr=
+setlocal nobinary
+setlocal bufhidden=
+setlocal buflisted
+setlocal buftype=
+setlocal cindent
+setlocal cinkeys=0{,0},0),:,0#,!^F,o,O,e
+setlocal cinoptions=
+setlocal cinwords=if,else,while,do,for,switch
+setlocal colorcolumn=
+setlocal comments=sO:\"\ -,mO:\"\ \ ,eO:\"\",:\"
+setlocal commentstring=\"%s
+setlocal complete=.,w,b,u,t,i
+setlocal concealcursor=
+setlocal conceallevel=0
+setlocal completefunc=
+setlocal nocopyindent
+setlocal cryptmethod=
+setlocal nocursorbind
+setlocal nocursorcolumn
+set cursorline
+setlocal cursorline
+setlocal define=
+setlocal dictionary=
+setlocal nodiff
+setlocal equalprg=
+setlocal errorformat=
+setlocal expandtab
+if &filetype != 'vim'
+setlocal filetype=vim
+endif
+setlocal foldcolumn=0
+set nofoldenable
+setlocal nofoldenable
+setlocal foldexpr=0
+setlocal foldignore=#
+setlocal foldlevel=0
+setlocal foldmarker={{{,}}}
+setlocal foldmethod=marker
+setlocal foldminlines=1
+setlocal foldnestmax=20
+setlocal foldtext=foldtext()
+setlocal formatexpr=
+setlocal formatoptions=croql
+setlocal formatlistpat=^\\s*\\d\\+[\\]:.)}\\t\ ]\\s*
+setlocal grepprg=
+setlocal iminsert=0
+setlocal imsearch=0
+setlocal include=
+setlocal includeexpr=
+setlocal indentexpr=GetVimIndent()
+setlocal indentkeys=0{,0},:,0#,!^F,o,O,e,=end,=else,=cat,=fina,=END,0\\
+setlocal noinfercase
+setlocal iskeyword=@,48-57,_,192-255,#
+setlocal keywordprg=
+setlocal nolinebreak
+setlocal nolisp
+set list
+setlocal list
+setlocal makeprg=
+setlocal matchpairs=(:),{:},[:]
+setlocal modeline
+setlocal modifiable
+setlocal nrformats=octal,hex
+set number
+setlocal number
+setlocal numberwidth=4
+setlocal omnifunc=
+setlocal path=
+setlocal nopreserveindent
+setlocal nopreviewwindow
+setlocal quoteescape=\\
+setlocal noreadonly
+setlocal norelativenumber
+setlocal norightleft
+setlocal rightleftcmd=search
+setlocal noscrollbind
+setlocal shiftwidth=4
+setlocal noshortname
+setlocal smartindent
+setlocal softtabstop=0
+setlocal nospell
+setlocal spellcapcheck=[.?!]\\_[\\])'\"\	\ ]\\+
+setlocal spellfile=
+setlocal spelllang=en
+setlocal statusline=
+setlocal suffixesadd=
+setlocal noswapfile
+setlocal synmaxcol=3000
+if &syntax != 'vim'
+setlocal syntax=vim
+endif
+setlocal tabstop=4
+setlocal tags=
+setlocal textwidth=78
+setlocal thesaurus=
+setlocal noundofile
+setlocal nowinfixheight
+setlocal nowinfixwidth
+set nowrap
+setlocal nowrap
+setlocal wrapmargin=0
+let s:l = 24 - ((9 * winheight(0) + 10) / 21)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+24
+normal! 02l
+lcd ~/.vim/plugin
+tabnew
+set splitbelow splitright
+wincmd _ | wincmd |
+split
+1wincmd k
+wincmd w
+set nosplitbelow
+set nosplitright
+wincmd t
+set winheight=1 winwidth=1
+exe '1resize ' . ((&lines * 19 + 27) / 55)
+exe 'vert 1resize ' . ((&columns * 80 + 71) / 142)
+exe '2resize ' . ((&lines * 0 + 27) / 55)
+exe 'vert 2resize ' . ((&columns * 80 + 71) / 142)
+argglobal
+edit ~/.vim/doc/fuf.txt
+setlocal keymap=
+setlocal noarabic
+setlocal autoindent
+setlocal balloonexpr=
+setlocal nobinary
+setlocal bufhidden=
+setlocal nobuflisted
+setlocal buftype=help
+setlocal cindent
+setlocal cinkeys=0{,0},0),:,0#,!^F,o,O,e
+setlocal cinoptions=
+setlocal cinwords=if,else,while,do,for,switch
+setlocal colorcolumn=
+setlocal comments=s1:/*,mb:*,ex:*/,://,b:#,:%,:XCOMM,n:>,fb:-
+setlocal commentstring=/*%s*/
+setlocal complete=.,w,b,u,t,i
+setlocal concealcursor=nc
+setlocal conceallevel=2
+setlocal completefunc=
+setlocal nocopyindent
+setlocal cryptmethod=
+setlocal nocursorbind
+setlocal nocursorcolumn
+set cursorline
+setlocal cursorline
+setlocal define=
+setlocal dictionary=
+setlocal nodiff
+setlocal equalprg=
+setlocal errorformat=
+setlocal expandtab
+if &filetype != 'help'
+setlocal filetype=help
+endif
+setlocal foldcolumn=0
+set nofoldenable
+setlocal nofoldenable
+setlocal foldexpr=0
+setlocal foldignore=#
+setlocal foldlevel=0
+setlocal foldmarker={{{,}}}
+setlocal foldmethod=manual
+setlocal foldminlines=1
+setlocal foldnestmax=20
+setlocal foldtext=foldtext()
+setlocal formatexpr=
+setlocal formatoptions=tcroql
+setlocal formatlistpat=^\\s*\\d\\+[\\]:.)}\\t\ ]\\s*
+setlocal grepprg=
+setlocal iminsert=2
+setlocal imsearch=0
+setlocal include=
+setlocal includeexpr=
+setlocal indentexpr=
+setlocal indentkeys=0{,0},:,0#,!^F,o,O,e
+setlocal noinfercase
+setlocal iskeyword=!-~,^*,^|,^\",192-255
+setlocal keywordprg=
+setlocal nolinebreak
+setlocal nolisp
+set list
+setlocal nolist
+setlocal makeprg=
+setlocal matchpairs=(:),{:},[:]
+setlocal modeline
+setlocal nomodifiable
+setlocal nrformats=octal,hex
+set number
+setlocal nonumber
+setlocal numberwidth=4
+setlocal omnifunc=
+setlocal path=
+setlocal nopreserveindent
+setlocal nopreviewwindow
+setlocal quoteescape=\\
+setlocal readonly
+setlocal norelativenumber
+setlocal norightleft
+setlocal rightleftcmd=search
+setlocal noscrollbind
+setlocal shiftwidth=4
+setlocal noshortname
+setlocal smartindent
+setlocal softtabstop=0
+setlocal nospell
+setlocal spellcapcheck=[.?!]\\_[\\])'\"\	\ ]\\+
+setlocal spellfile=
+setlocal spelllang=en
+setlocal statusline=
+setlocal suffixesadd=
+setlocal noswapfile
+setlocal synmaxcol=3000
+if &syntax != 'help'
+setlocal syntax=help
+endif
+setlocal tabstop=8
+setlocal tags=
+setlocal textwidth=78
+setlocal thesaurus=
+setlocal noundofile
+setlocal nowinfixheight
+setlocal nowinfixwidth
+set nowrap
+setlocal nowrap
+setlocal wrapmargin=0
+silent! normal! zE
+let s:l = 109 - ((16 * winheight(0) + 9) / 19)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+109
+normal! 053l
+lcd ~/.vim/doc
+wincmd w
+argglobal
+enew
+setlocal keymap=
+setlocal noarabic
+setlocal autoindent
+setlocal balloonexpr=
+setlocal nobinary
+setlocal bufhidden=
+setlocal buflisted
+setlocal buftype=
+setlocal cindent
+setlocal cinkeys=0{,0},0),:,0#,!^F,o,O,e
+setlocal cinoptions=
+setlocal cinwords=if,else,while,do,for,switch
+setlocal colorcolumn=
+setlocal comments=s1:/*,mb:*,ex:*/,://,b:#,:%,:XCOMM,n:>,fb:-
+setlocal commentstring=/*%s*/
+setlocal complete=.,w,b,u,t,i
+setlocal concealcursor=
+setlocal conceallevel=0
+setlocal completefunc=
+setlocal nocopyindent
+setlocal cryptmethod=
+setlocal nocursorbind
+setlocal nocursorcolumn
+set cursorline
+setlocal cursorline
+setlocal define=
+setlocal dictionary=
+setlocal nodiff
+setlocal equalprg=
+setlocal errorformat=
+setlocal expandtab
+if &filetype != ''
+setlocal filetype=
+endif
+setlocal foldcolumn=0
+set nofoldenable
+setlocal nofoldenable
+setlocal foldexpr=0
+setlocal foldignore=#
+setlocal foldlevel=0
+setlocal foldmarker={{{,}}}
+setlocal foldmethod=manual
+setlocal foldminlines=1
+setlocal foldnestmax=20
+setlocal foldtext=foldtext()
+setlocal formatexpr=
+setlocal formatoptions=tcq
+setlocal formatlistpat=^\\s*\\d\\+[\\]:.)}\\t\ ]\\s*
+setlocal grepprg=
+setlocal iminsert=2
+setlocal imsearch=0
+setlocal include=
+setlocal includeexpr=
+setlocal indentexpr=
+setlocal indentkeys=0{,0},:,0#,!^F,o,O,e
+setlocal noinfercase
+setlocal iskeyword=@,48-57,_,192-255
+setlocal keywordprg=
+setlocal nolinebreak
+setlocal nolisp
+set list
+setlocal list
+setlocal makeprg=
+setlocal matchpairs=(:),{:},[:]
+setlocal modeline
+setlocal modifiable
+setlocal nrformats=octal,hex
+set number
+setlocal number
+setlocal numberwidth=4
+setlocal omnifunc=
+setlocal path=
+setlocal nopreserveindent
+setlocal nopreviewwindow
+setlocal quoteescape=\\
+setlocal noreadonly
+setlocal norelativenumber
+setlocal norightleft
+setlocal rightleftcmd=search
+setlocal noscrollbind
+setlocal shiftwidth=4
+setlocal noshortname
+setlocal smartindent
+setlocal softtabstop=0
+setlocal nospell
+setlocal spellcapcheck=[.?!]\\_[\\])'\"\	\ ]\\+
+setlocal spellfile=
+setlocal spelllang=en
+setlocal statusline=
+setlocal suffixesadd=
+setlocal noswapfile
+setlocal synmaxcol=3000
+if &syntax != ''
+setlocal syntax=
+endif
+setlocal tabstop=4
+setlocal tags=
+setlocal textwidth=0
+setlocal thesaurus=
+setlocal noundofile
+setlocal nowinfixheight
+setlocal nowinfixwidth
+set nowrap
+setlocal nowrap
+setlocal wrapmargin=0
+lcd ~/.vim/plugin
+wincmd w
+exe '1resize ' . ((&lines * 19 + 27) / 55)
+exe 'vert 1resize ' . ((&columns * 80 + 71) / 142)
+exe '2resize ' . ((&lines * 0 + 27) / 55)
+exe 'vert 2resize ' . ((&columns * 80 + 71) / 142)
+tabedit ~/work/oDeskPrototype/odesk_proto/public/js/app.coffee
+set splitbelow splitright
+set nosplitbelow
+set nosplitright
+wincmd t
+set winheight=1 winwidth=1
+argglobal
+setlocal keymap=
+setlocal noarabic
+setlocal autoindent
+setlocal balloonexpr=
+setlocal nobinary
+setlocal bufhidden=
+setlocal buflisted
+setlocal buftype=
+setlocal cindent
+setlocal cinkeys=0{,0},0),:,0#,!^F,o,O,e
+setlocal cinoptions=
+setlocal cinwords=if,else,while,do,for,switch
+setlocal colorcolumn=
+setlocal comments=:#
+setlocal commentstring=#\ %s
+setlocal complete=.,w,b,u,t,i
+setlocal concealcursor=
+setlocal conceallevel=0
+setlocal completefunc=
+setlocal nocopyindent
+setlocal cryptmethod=
+setlocal nocursorbind
+setlocal nocursorcolumn
+set cursorline
+setlocal cursorline
+setlocal define=
+setlocal dictionary=
+setlocal nodiff
+setlocal equalprg=
+setlocal errorformat=Error:\ In\ %f\\,\ %m\ on\ line\ %l,Error:\ In\ %f\\,\ Parse\ error\ on\ line\ %l:\ %m,SyntaxError:\ In\ %f\\,\ %m,%-G%.%#
+setlocal expandtab
+if &filetype != 'coffee'
+setlocal filetype=coffee
+endif
+setlocal foldcolumn=0
+set nofoldenable
+setlocal nofoldenable
+setlocal foldexpr=0
+setlocal foldignore=#
+setlocal foldlevel=0
+setlocal foldmarker={{{,}}}
+setlocal foldmethod=manual
+setlocal foldminlines=1
+setlocal foldnestmax=20
+setlocal foldtext=foldtext()
+setlocal formatexpr=
+setlocal formatoptions=croql
+setlocal formatlistpat=^\\s*\\d\\+[\\]:.)}\\t\ ]\\s*
+setlocal grepprg=
+setlocal iminsert=2
+setlocal imsearch=2
+setlocal include=
+setlocal includeexpr=
+setlocal indentexpr=GetCoffeeIndent(v:lnum)
+setlocal indentkeys=0{,0},:,0#,!^F,o,O,e,0],0),0.,=else,=when,=catch,=finally
+setlocal noinfercase
+setlocal iskeyword=@,48-57,_,192-255
+setlocal keywordprg=
+setlocal nolinebreak
+setlocal nolisp
+set list
+setlocal list
+setlocal makeprg=coffee\ -c\ \ $*\ work/oDeskPrototype/odesk_proto/public/js/app.coffee
+setlocal matchpairs=(:),{:},[:]
+setlocal modeline
+setlocal modifiable
+setlocal nrformats=octal,hex
+set number
+setlocal number
+setlocal numberwidth=4
+setlocal omnifunc=javascriptcomplete#CompleteJS
+setlocal path=
+setlocal nopreserveindent
+setlocal nopreviewwindow
+setlocal quoteescape=\\
+setlocal noreadonly
+setlocal norelativenumber
+setlocal norightleft
+setlocal rightleftcmd=search
+setlocal noscrollbind
+setlocal shiftwidth=4
+setlocal noshortname
+setlocal smartindent
+setlocal softtabstop=0
+setlocal nospell
+setlocal spellcapcheck=[.?!]\\_[\\])'\"\	\ ]\\+
+setlocal spellfile=
+setlocal spelllang=en
+setlocal statusline=
+setlocal suffixesadd=
+setlocal noswapfile
+setlocal synmaxcol=3000
+if &syntax != 'coffee'
+setlocal syntax=coffee
+endif
+setlocal tabstop=4
+setlocal tags=
+setlocal textwidth=0
+setlocal thesaurus=
+setlocal noundofile
+setlocal nowinfixheight
+setlocal nowinfixwidth
+set nowrap
+setlocal nowrap
+setlocal wrapmargin=0
+silent! normal! zE
+let s:l = 3 - ((1 * winheight(0) + 10) / 21)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+3
+normal! 0
+lcd ~/work/oDeskPrototype/odesk_proto/public/js
+tabnext 2
+if exists('s:wipebuf')
+  silent exe 'bwipe ' . s:wipebuf
+endif
+unlet! s:wipebuf
+set winheight=1 winwidth=20 shortmess=filnxtToO
+let s:sx = expand("<sfile>:p:r")."x.vim"
+if file_readable(s:sx)
+  exe "source " . fnameescape(s:sx)
+endif
+let &so = s:so_save | let &siso = s:siso_save
+doautoall SessionLoadPost
+unlet SessionLoad
+" vim: set ft=vim :

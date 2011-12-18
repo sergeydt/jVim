@@ -1,0 +1,10 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =8
+let g:netrw_dirhist_1='/home/jed'
+let g:netrw_dirhist_2='/home/jed/.vim'
+let g:netrw_dirhist_3='/home/jed/.vim/colors'
+let g:netrw_dirhist_4='/home/jed'
+let g:netrw_dirhist_5='/home/jed/.gnome2_private'
+let g:netrw_dirhist_6='/home/jed'
+let g:netrw_dirhist_7='/home/jed/Aptana Studio 3 Workspace'
+let g:netrw_dirhist_8='/home/jed'
